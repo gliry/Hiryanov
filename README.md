@@ -1,3 +1,3 @@
-# Hiryanov_picture_1
+# Hiryanov
 
-I made some changes.
+laboratory works
