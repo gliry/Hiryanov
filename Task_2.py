@@ -26,20 +26,60 @@ def drawing_dog():
 
 
 def drawing_booth(width_booth, height_booth, x_booth, y_booth):
-    polygon(screen, (255, 255, 0), [(x_booth, y_booth), (x_booth + width_booth / 2, y_booth + height_booth / 1.5),
-                                (x_booth - width_booth / 2, y_booth + height_booth / 2)])  # Treangle part of booth
+    """
+    This function draw booth, that have roofs peak in (x_booth, y_booth),
+    :param width_booth:
+    :param height_booth:
+    :param x_booth:
+    :param y_booth:
+    :return:
+    """
+    polygon(screen, (255, 255, 0), [(x_booth, y_booth),
+                                    (x_booth + width_booth / 2, y_booth + height_booth / 1.5),
+                                    (x_booth - width_booth / 2, y_booth + height_booth / 2)])  # Rectangle part of booth
 
-
-    polygon(screen, (255, 255, 0), [(x_booth, y_booth), (x_booth + width_booth / 2, y_booth - height_booth / 7),
-                                    (x_booth + width_booth, y_booth + height_booth / 2), (x_booth + width_booth / 2, y_booth + height_booth / 1.5)])
-
-    polygon(screen, (0, 0, 0), [(x_booth, y_booth), (x_booth + width_booth / 2, y_booth + height_booth / 1.5),
-                                    (x_booth - width_booth / 2, y_booth + height_booth / 2)], 2)  # Treangle perimetr part of booth
-
-    polygon(screen, (0, 0, 0), [(x_booth, y_booth), (x_booth + width_booth / 2, y_booth - height_booth / 7),
+    polygon(screen, (255, 255, 0), [(x_booth, y_booth),
+                                    (x_booth + width_booth / 2, y_booth - height_booth / 7),
                                     (x_booth + width_booth, y_booth + height_booth / 2),
-                                    (x_booth + width_booth / 2, y_booth + height_booth / 1.5)], 2)
+                                    (x_booth + width_booth / 2,
+                                     y_booth + height_booth / 1.5)])  # Polygon part of booth's roof
 
+    polygon(screen, (255, 204, 0), [(x_booth - width_booth / 2, y_booth + height_booth / 2),
+                                    (x_booth + width_booth / 2, y_booth + height_booth / 1.5),
+                                    (x_booth + width_booth / 2, y_booth + height_booth * 1.35),
+                                    (x_booth - width_booth / 2,
+                                     y_booth + height_booth * 1.1)])  # Front wall part of booth
+
+    polygon(screen, (255, 204, 0), [(x_booth + width_booth / 2, y_booth + height_booth / 1.5),
+                                    (x_booth + width_booth, y_booth + height_booth / 2),
+                                    (x_booth + width_booth, y_booth + height_booth * 1.12),
+                                    (x_booth + width_booth / 2,
+                                     y_booth + height_booth * 1.35)])  # Back wall part of booth
+
+    polygon(screen, (0, 0, 0), [(x_booth, y_booth),
+                                (x_booth + width_booth / 2, y_booth + height_booth / 1.5),
+                                (x_booth - width_booth / 2, y_booth + height_booth / 2)],
+            2)  # Rectangle perimeter part of booth
+
+    polygon(screen, (0, 0, 0), [(x_booth, y_booth),
+                                (x_booth + width_booth / 2, y_booth - height_booth / 7),
+                                (x_booth + width_booth, y_booth + height_booth / 2),
+                                (x_booth + width_booth / 2, y_booth + height_booth / 1.5)],
+            2)  # Polygon perimeter part of booth's roof
+
+    polygon(screen, (0, 0, 0), [(x_booth - width_booth / 2, y_booth + height_booth / 2),
+                                (x_booth + width_booth / 2, y_booth + height_booth / 1.5),
+                                (x_booth + width_booth / 2, y_booth + height_booth * 1.35),
+                                (x_booth - width_booth / 2, y_booth + height_booth * 1.1)],
+            2)  # Front perimeter wall part of booth
+
+    polygon(screen, (0, 0, 0), [(x_booth + width_booth / 2, y_booth + height_booth / 1.5),
+                                (x_booth + width_booth, y_booth + height_booth / 2),
+                                (x_booth + width_booth, y_booth + height_booth * 1.12),
+                                (x_booth + width_booth / 2,
+                                 y_booth + height_booth * 1.35)], 2)  # Back wall perimeter part of booth
+
+    circle(screen, (0, 0, 0), (x_booth, y_booth + height_booth * 0.9), width_booth / 3.5)
 
 
 def drawing_background(width_background, height_background):
