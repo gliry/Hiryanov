@@ -21,7 +21,7 @@ def drawing_fence(width_fence, height_fence, x_fence, y_fence, number_board):
              (x_fence + width_fence * i / number_board, y_fence + height_fence), 2)
 
 
-def drawing_dog(width_dog, height_dog, x_dog, y_dog, pos=1):
+def drawing_dog(width_dog, height_dog, x_dog, y_dog):
     """
     This function draw dog with width width_dog and height - height_dog.
     In coordinates (x_dog, y_dog). It can draw right looking and left looking dog.
@@ -29,10 +29,23 @@ def drawing_dog(width_dog, height_dog, x_dog, y_dog, pos=1):
     :param height_dog: Full height of dog
     :param x_dog: Coordinate X of left top angle of dog's head
     :param y_dog:  Coordinate Y of left top angle of dog's head
-    :param pos: This param maybe 1 and -1. If it 1, then function draw right looking dog with body from left
-                                           If it -1, then fuction draw left looking dog with body from right
     :return:None
     """
+
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog / 5, y_dog + height_dog / 4, width_dog, height_dog / 1.9])  # Main body part
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog / 1.3, y_dog + height_dog / 5, width_dog / 3, height_dog * 0.4])  # Dog's hip
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog / 1.3, y_dog + height_dog / 4, width_dog / 2, height_dog * 0.3]) # Dog's back leg 1
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog, y_dog + height_dog / 3.5, width_dog / 4, height_dog * 0.5])  # Dog's back leg 2
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog / 8, y_dog + height_dog / 3, width_dog / 5, height_dog / 1.5]) # Right front leg
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog / 3, y_dog + height_dog / 2, width_dog / 5, height_dog / 1.5]) # Left front leg
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog / 3.5, y_dog + height_dog * 1.05, width_dog / 5.5, height_dog / 6])  # Left front foot
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog / 14, y_dog + height_dog * 0.9, width_dog / 5.5, height_dog / 6]) # Right front foot
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog / 1.1, y_dog + height_dog / 2, width_dog / 10, height_dog / 2.5])  # Right back leg
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog * 1.1, y_dog + height_dog / 1.7, width_dog / 10, height_dog / 2.5])  # Left back leg
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog / 1.2, y_dog + height_dog / 1.25, width_dog / 6, height_dog / 7])  # Right back foot
+    ellipse(screen, (127, 127, 127), [x_dog + width_dog, y_dog + height_dog / 1.1, width_dog / 6, height_dog / 7])  # Left back foot
+
+
     polygon(screen, (127, 127, 127), [(x_dog, y_dog),
                                       (x_dog + width_dog / 2, y_dog),
                                       (x_dog + width_dog / 2, y_dog + height_dog / 2),
@@ -51,13 +64,19 @@ def drawing_dog(width_dog, height_dog, x_dog, y_dog, pos=1):
     circle(screen, (0, 0, 0), (x_dog + width_dog / 2, y_dog + height_dog / 10),
            width_dog / 10, 2)  # Right perimeter ear of dog
 
-    ellipse(screen, (255, 255, 255), [x_dog + width_dog / 10, y_dog + height_dog / 6, width_dog / 10, height_dog / 14])
-    ellipse(screen, (0, 0, 0), [x_dog + width_dog / 10, y_dog + height_dog / 6, width_dog / 10, height_dog / 14], 1)
-    ellipse(screen, (255, 255, 255), [x_dog + width_dog * 0.3, y_dog + height_dog / 6, width_dog / 10, height_dog / 14])
-    ellipse(screen, (0, 0, 0), [x_dog + width_dog * 0.3, y_dog + height_dog / 6, width_dog / 10, height_dog / 14], 1)
+    ellipse(screen, (255, 255, 255), [x_dog + width_dog / 10, y_dog + height_dog / 6, width_dog / 10, height_dog / 14])  # Left eye
+    ellipse(screen, (0, 0, 0), [x_dog + width_dog / 10, y_dog + height_dog / 6, width_dog / 10, height_dog / 14], 1)  # Left perimeter eye
+    ellipse(screen, (255, 255, 255), [x_dog + width_dog * 0.3, y_dog + height_dog / 6, width_dog / 10, height_dog / 14])  # Right eye
+    ellipse(screen, (0, 0, 0), [x_dog + width_dog * 0.3, y_dog + height_dog / 6, width_dog / 10, height_dog / 14], 1)  # Left perimeter eye
 
-    ellipse(screen, (0, 0, 0), [x_dog + width_dog / 8.7, y_dog + height_dog / 6, height_dog / 14, height_dog / 14])
-    ellipse(screen, (0, 0, 0), [x_dog + width_dog * 0.32, y_dog + height_dog / 6, height_dog / 14, height_dog / 14])
+    ellipse(screen, (0, 0, 0), [x_dog + width_dog / 8.7, y_dog + height_dog / 6, height_dog / 14, height_dog / 14])  # Left pupil of eye
+    ellipse(screen, (0, 0, 0), [x_dog + width_dog * 0.32, y_dog + height_dog / 6, height_dog / 14, height_dog / 14])  # Right pupil of eye
+
+    line(screen, (0, 0, 0), (x_dog + width_dog / 6, y_dog + height_dog / 2.6), (x_dog + width_dog / 3, y_dog + height_dog / 2.6), 3) # Mouth
+    polygon(screen, (255, 255, 255), [(x_dog + width_dog / 3.5, y_dog + height_dog / 2.6), (x_dog + width_dog / 3.25, y_dog + height_dog / 2.2), (x_dog + width_dog / 3, y_dog + height_dog / 2.6)])  # Tooth
+    polygon(screen, (0, 0, 0), [(x_dog + width_dog / 3.5, y_dog + height_dog / 2.6), (x_dog + width_dog / 3.25, y_dog + height_dog / 2.2), (x_dog + width_dog / 3, y_dog + height_dog / 2.6)], 3)  # Tooth
+
+
 
 
 def drawing_booth(width_booth, height_booth, x_booth, y_booth):
@@ -135,7 +154,7 @@ def drawing_picture():
     drawing_background(width, height)
     drawing_fence(width, height / 2, 0, 100, 10)
     drawing_booth(width / 5, height / 4, 340, 350)
-    drawing_dog(width / 3, height / 5, 100, 500)
+    drawing_dog(width / 3, height / 5, 200, 500)
 
 
 pygame.init()
